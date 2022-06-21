@@ -15,7 +15,7 @@ from ..sql_helper.global_collection import del_keyword_collectionlist, get_item_
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 from .klanr import load_module
 from .tools import create_supergroup
-LOGS = logging.getLogger("تيبثون \n ")
+LOGS = logging.getLogger("تيبثون\n ")
 cmdhr = Config.COMMAND_HAND_LER
 async def load_plugins(folder):
     path = f"iqqhtani/{folder}/*.py"
@@ -46,7 +46,7 @@ async def load_plugins(folder):
 async def startupmessage():
     try:
         if BOTLOG:
-            Config.CATUBLOGO = await iqqhtani.tgbot.send_file(BOTLOG_CHATID, "https://telegra.ph/file/8f6c3be6149d3a9b64d3c.mp4", caption="♛ ⦙ تـمّ  اعـادة تشـغيل\n تيبثون ✓  :  [ 7.6 ] .\n\n♛ ⦙ للحصول على اوامر السورس\n أرسـل : (  .اوامري  ) \n\n♛ ⦙ لمـعرفة كيفية تغير بعض كلايش\n او صور السـورس  أرسـل  :\n (  .مساعده  )\n\n♛ ⦙ القناة الرسمية تيبثون : @Tepthon\n♛ ⦙ فارات سورس تيبثون :@tepthon1 \n♛ ⦙ كلايش تيبثون:  @tepthon2\n ♛ ⦙التحديثات والاضافات :  @Tepthon\n",                buttons=[(Button.url("مطور تيبثون الرسمي", "https://t.me/P17_12"),)],            )
+            Config.CATUBLOGO = await iqqhtani.tgbot.send_file(BOTLOG_CHATID, "https://telegra.ph/file/7fce0278a376bf5138fe8.jpg", caption="♛ ⦙ تـمّ  اعـادة تشـغيل\n تيبثون✓  :  [ 7.6 ] .\n\n♛ ⦙ للحصول على اوامر السورس\n أرسـل : (  `.اوامري`  ) \n\n♛ ⦙ لمـعرفة كيفية تغير بعض كلايش\n او صور السـورس  أرسـل  :\n (  `.مساعده`  )\n\n♛ ⦙ القناة الرسمية تيبثون: @Tepthon\n♛ ⦙ فارات سورس تيبثون:@Tepthon \n♛ ⦙ كلايش تيبثون:  @Tepthon\n ♛ ⦙التحديثات والاضافات :  @Tepthon\n",                buttons=[(Button.url("مطور تيبثون الرسمي", "https://t.me/kidcrl"),)],            )
     except Exception as e:
         LOGS.error(e)
         return None
@@ -99,7 +99,7 @@ async def verifyLoggerGroup():
             LOGS.error(                "♛ ︙حدث استثناء عند محاولة التحقق من PRIVATE_GROUP_BOT_API_ID.\n"                + str(e)            )
     else:
         descript = "♛ ︙ لا تحذف هذه المجموعة أو تغير إلى مجموعة (إذا قمت بتغيير المجموعة ، فسيتم فقد كل شيئ .)"
-       groupid = await create_supergroup(            "تخزين تيبثون العام", iqqhtani, Config.TG_BOT_USERNAME, descript        )
+        _, groupid = await create_supergroup(            "تخزين تيبثون العام", iqqhtani, Config.TG_BOT_USERNAME, descript        )
         addgvar("PRIVATE_GROUP_BOT_API_ID", groupid)
         print("♛ ︙ تم إنشاء مجموعة المسـاعدة بنجاح وإضافتها إلى المتغيرات.")
         flag = True
@@ -118,8 +118,8 @@ async def verifyLoggerGroup():
         except Exception as e:
             LOGS.error(                "♛ ︙ حدث استثناء عند محاولة التحقق من PM_LOGGER_GROUP_ID.\n" + str(e)            )
     else:
-        descript = "♛ ︙ وظيفه هذا المجموعة لحفض رسائل التي تكون موجة اليك ان لم تعجبك هذا المجموعة قم بحذفها نهائيأ 👍 \n  الـسورس : - @Tepthon""
-       _, groupid = await create_supergroup(            " الخاص تيبثون  تخزين ", iqqhtani, Config.TG_BOT_USERNAME, descript        )
+        descript = "♛ ︙ وظيفه هذا المجموعة لحفض رسائل التي تكون موجة اليك ان لم تعجبك هذا المجموعة قم بحذفها نهائيأ 👍 \n  الـسورس : - @Tepthon"
+        _, groupid = await create_supergroup(            "تخزين تيبثون الخاص ", iqqhtani, Config.TG_BOT_USERNAME, descript        )
         addgvar("PM_LOGGER_GROUP_ID", groupid)
         print("♛ ︙ تم إنشاء مجموعة خاصة لـ PRIVATE_GROUP_BOT_API_ID بنجاح وإضافتها إلى المتغيرات.")
         flag = True
