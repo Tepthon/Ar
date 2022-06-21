@@ -121,7 +121,7 @@ async def _(iqqhtani):
 @iqqhtani.on(admin_cmd(pattern="بوتي$"))
 async def iq(iqbot):
     TG_BOT_USERNAME = Config.TG_BOT_USERNAME
-    await iqbot.reply(f"**بوت القحطاني الخاص بك : {TG_BOT_USERNAME}**")
+    await iqbot.reply(f"**بوت تيبثون الخاص بك : {TG_BOT_USERNAME}**")
 @iqqhtani.on(admin_cmd(pattern="ملصقي ?(.*)"))
 async def iq(iqqhtani):
     if iqqhtani.fwd_from:
@@ -202,18 +202,18 @@ async def _(iqqhtani):  # sourcery no-metrics
     input_str = "".join(iqqhtani.text.split(maxsplit=1)[1:])
     reply_message = await iqqhtani.get_reply_message()
     if not input_str and not reply_message:
-        await edit_delete(iqqhtani, " ◈ ⦙ قم بالـرد على رسالـة لمستخـدم للحصـول على إسمـه/سجل يوزراتـه أو قم بإعطـاء آيـدي المستخـدم/يـوزر المستخـدم ✦**")
+        await edit_delete(iqqhtani, " ℘ ⦙ قم بالـرد على رسالـة لمستخـدم للحصـول على إسمـه/سجل يوزراتـه أو قم بإعطـاء آيـدي المستخـدم/يـوزر المستخـدم ✦**")
     user, rank = await get_user_from_event(iqqhtani, secondgroup=True)
     if not user:
         return
     uid = user.id
     chat = "@SangMataInfo_bot"
-    iqevent = await edit_or_reply(iqqhtani, " ◈ ⦙ جـاري المعالجـة ↯**")
+    iqevent = await edit_or_reply(iqqhtani, " ℘ ⦙ جـاري المعالجـة ↯**")
     async with iqqhtani.client.conversation(chat) as conv:
         try:
             await conv.send_message(f"/search_id {uid}")
         except YouBlockedUserError:
-            await edit_delete(iqqhtani, " ◈ ⦙ قم بإلغـاء حظـر @Sangmatainfo_bot ثم حـاول !!**")
+            await edit_delete(iqqhtani, " ℘ ⦙ قم بإلغـاء حظـر @Sangmatainfo_bot ثم حـاول !!**")
         responses = []
         while True:
             try:
@@ -223,9 +223,9 @@ async def _(iqqhtani):  # sourcery no-metrics
             responses.append(response.text)
         await iqqhtani.client.send_read_acknowledge(conv.chat_id)
     if not responses:
-        await edit_delete(iqqhtani, " ◈ ⦙ لا يستطيـع البـوت جلـب النتائـج ⚠️**")
+        await edit_delete(iqqhtani, " ℘ ⦙ لا يستطيـع البـوت جلـب النتائـج ⚠️**")
     if "No records found" in responses:
-        await edit_delete(iqqhtani, " ◈ ⦙ المستخـدم ليـس لديـه أيّ سجـل ✕**")
+        await edit_delete(iqqhtani, " ℘ ⦙ المستخـدم ليـس لديـه أيّ سجـل ✕**")
     names, usernames = await sanga_seperator(responses)
     cmd = iqqhtani.pattern_match.group(1)
     sandy = None
@@ -240,13 +240,13 @@ async def _(iqqhtani):  # sourcery no-metrics
 async def _(iqqhtani):
     reply_message = await iqqhtani.get_reply_message()
     if not reply_message:
-        await edit_or_reply(iqqhtani, " ◈ ⦙  الرد على الرابط.**")
+        await edit_or_reply(iqqhtani, " ℘ ⦙  الرد على الرابط.**")
         return
     if not reply_message.text:
-        await edit_or_reply(iqqhtani, " ◈ ⦙  الرد على الرابط.**")
+        await edit_or_reply(iqqhtani, " ℘ ⦙  الرد على الرابط.**")
         return
     chat = "@fs0bot"
-    iqevent = await edit_or_reply(iqqhtani, " ◈ ⦙  جاري تحميل الرابط**")
+    iqevent = await edit_or_reply(iqqhtani, " ℘ ⦙  جاري تحميل الرابط**")
     async with iqqhtani.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(events.NewMessage(incoming=True, from_users=1354606430))
@@ -254,7 +254,7 @@ async def _(iqqhtani):
             response = await response
             await iqqhtani.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await iqevent.edit(" ◈ ⦙  فك الحظر من البوت : @fs0bot**")
+            await iqevent.edit(" ℘ ⦙  فك الحظر من البوت : @fs0bot**")
             return
         if response.text.startswith("؟"):
             await iqevent.edit("?")
