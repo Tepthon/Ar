@@ -312,7 +312,7 @@ async def inline_handler(event):
             url=CATLOGO, size=0, mime_type="image/jpeg", attributes=[]
         )
         text, msg_entities = await event.client._parse_message_text(
-            "iqqhtani.", "md"
+            "Tepthon.", "md"
         )
         result = types.InputBotInlineResult(
             id=str(uuid4()),
